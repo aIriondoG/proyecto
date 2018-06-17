@@ -327,7 +327,7 @@ public class NuevoUsuario extends javax.swing.JDialog {
                     + "'" + dni + "', "
                     + "'" + apellidos + "' "
                     + ");";
-            System.out.println(insert);
+            //System.out.println(insert);
             s.executeUpdate(insert);
 
             int pUsu = 0;
@@ -339,7 +339,7 @@ public class NuevoUsuario extends javax.swing.JDialog {
                 pUsu = rs.getInt(1);
             }
             String cb = "INSERT INTO cuentabancaria VALUES (null," + pUsu + ",'" + txtIban.getText() + "')";
-            System.out.println(cb);
+            //System.out.println(cb);
             s.executeUpdate(cb);
             this.dispose();
             padre.setVisible(true);

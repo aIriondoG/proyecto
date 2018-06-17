@@ -114,7 +114,7 @@ public class SeleccionarEmpresa extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -122,7 +122,7 @@ public class SeleccionarEmpresa extends javax.swing.JDialog {
                         .addGap(3, 3, 3)
                         .addComponent(jcEmpresas)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -164,12 +164,12 @@ public class SeleccionarEmpresa extends javax.swing.JDialog {
                     + "                    FROM  desguace de "
                     + "                    WHERE de.Nombre='" + jcEmpresas.getSelectedItem().toString() + "'");
             while (rs.next()) {
-                System.out.println(rs.getString(1) + "-" + txtContraseña.getText().toString());
+                //System.out.println(rs.getString(1) + "-" + txtContraseña.getText().toString());
                 contra = rs.getString(1);
 
             }
             if (contra.equals(txtContraseña.getText().toString())) {
-                System.out.println("verdadero es true");
+                //System.out.println("verdadero es true");
                 verdadero = true;
             }
             if (verdadero == true) {

@@ -34,11 +34,11 @@ public class Registro extends javax.swing.JFrame {
 
     public Registro() {
         this.setUndecorated(true);
-        
+
         initComponents();
-        
+
         Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation((pantalla.width/2)-(this.getWidth()/2),(pantalla.height/2)-(this.getHeight()/2));
+        this.setLocation((pantalla.width / 2) - (this.getWidth() / 2), (pantalla.height / 2) - (this.getHeight() / 2));
         rellenoBotones();
         Image rIcon = Toolkit.getDefaultToolkit().getImage("iconos/reparacion.png");
         this.setIconImage(rIcon);
@@ -206,7 +206,7 @@ public class Registro extends javax.swing.JFrame {
         boolean verdadero2 = false;
         usuario = txtUsuario.getText();
         contrasena = txtContra.getText().toString();
-        System.out.println(contrasena);
+        //System.out.println(contrasena);
         try {
             Statement sentencia = conexion.createStatement();
             String consultaUsuarios = "SELECT u.Usuario , u.Contrasena , u.A_Desguace "
@@ -215,7 +215,7 @@ public class Registro extends javax.swing.JFrame {
             ResultSet obtenerUsuarios = sentencia.executeQuery(consultaUsuarios);
             while (obtenerUsuarios.next()) {
 
-                System.out.println("USUARIO: " + obtenerUsuarios.getString(1) + "-" + obtenerUsuarios.getString(2) + "-" + obtenerUsuarios.getInt(3));
+                // System.out.println("USUARIO: " + obtenerUsuarios.getString(1) + "-" + obtenerUsuarios.getString(2) + "-" + obtenerUsuarios.getInt(3));
                 if ((usuario.equals(obtenerUsuarios.getString(1)))) {
                     verdadero = true;
                     if (contrasena.equals(obtenerUsuarios.getString(2))) {
@@ -226,7 +226,7 @@ public class Registro extends javax.swing.JFrame {
                         } else {
                             empresa = false;
                         }
-                        System.out.println("empresa: " + empresa);
+                        //System.out.println("empresa: " + empresa);
                     } else {
                         verdadero = false;
                     }
@@ -240,7 +240,7 @@ public class Registro extends javax.swing.JFrame {
             if (verdadero2 == true) {
                 setUsuario(txtUsuario.getText());
                 entrar();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Usuario Incorrecto");
             }
 

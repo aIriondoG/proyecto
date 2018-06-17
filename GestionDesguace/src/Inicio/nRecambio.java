@@ -167,47 +167,47 @@ public class nRecambio extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbMarca))
+                    .addComponent(cbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbModelo))
+                    .addComponent(cbModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTipo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbPieza))
+                    .addComponent(cbPieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbDesguace))
+                    .addComponent(cbDesguace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtCantidad))
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtPrecio))
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -287,7 +287,7 @@ public class nRecambio extends javax.swing.JDialog {
             while (rs.next()) {
                 a_motor = rs.getInt(1);
             }
-            System.out.println(a_motor);
+            //System.out.println(a_motor);
             ResultSet rs2 = s.executeQuery("SELECT  p.P_Pieza "
                     + "                    FROM pieza p "
                     + "                    WHERE  p.Nombre = '" + cbPieza.getSelectedItem().toString() + "'");
@@ -300,9 +300,9 @@ public class nRecambio extends javax.swing.JDialog {
             while (rs3.next()) {
                 a_desguace = rs3.getInt(1);
             }
-            System.out.println(a_motor + " " + a_pieza + " " + a_desguace);
+            //System.out.println(a_motor + " " + a_pieza + " " + a_desguace);
             String insertinto = "INSERT INTO recambio VALUES(null , " + a_motor + " , " + a_pieza + " , " + a_desguace + " , " + txtCantidad.getText().toString() + " , " + txtPrecio.getText().toString() + ");";
-            System.out.println(insertinto);
+            //System.out.println(insertinto);
             s.executeUpdate(insertinto);
 
             this.dispose();
@@ -326,7 +326,7 @@ public class nRecambio extends javax.swing.JDialog {
 
     private void cbMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMarcaActionPerformed
         // TODO add your handling code here:
-        System.out.println("IOE");
+        //System.out.println("IOE");
         String[] modelos;
         try {
             s = conexion.createStatement();
@@ -420,10 +420,10 @@ public class nRecambio extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     public void rellenoJCM() {
         btnAñadir.setVisible(false);
-        System.out.println("Botones cambiados");
+        //System.out.println("Botones cambiados");
         try {
             s = conexion.createStatement();
-            System.out.println("Empezamos consulta");
+            //System.out.println("Empezamos consulta");
             String relleno = "SELECT t.`Nombre` , p.Nombre , ma.`Nombre` , mo.`Nombre`, mot.`Codigo` , d.`Nombre`, r.`CantidadDisponible` ,r.`Precio`\n"
                     + "                    FROM recambio r , marca ma , modelo mo , motor mot , modelomotor mm, desguace d , pieza p , tipo t\n"
                     + "                    WHERE r.`A_Motor` = mot.`P_Motor`\n"
@@ -447,9 +447,9 @@ public class nRecambio extends javax.swing.JDialog {
                 //cbDesguace.setSelectedItem(rs.getString(6));
                 /* System.out.println("Cantiodad: " + rs.getInt(7));
                 txtCantidad.setText(rs.getInt(7) + "");
-                System.out.println("Precio: " + rs.getInt(8));
+                //System.out.println("Precio: " + rs.getInt(8));
                 txtPrecio.setText(rs.getDouble(8) + "");*/
-                System.out.println("BUCLE");
+                // System.out.println("BUCLE");
             }
 
         } catch (SQLException ex) {

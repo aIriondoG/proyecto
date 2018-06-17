@@ -178,17 +178,17 @@ public class NModificar extends javax.swing.JDialog {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPiezaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtNombre))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTipo)
+                .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPiezaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92)
                 .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPIntroducir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,29 +326,29 @@ public class NModificar extends javax.swing.JDialog {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlModeloLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtMName))
+                    .addComponent(txtMName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlModeloLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(cbMarca))
+                    .addComponent(cbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlModeloLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtAS))
+                    .addComponent(txtAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlModeloLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtAR))
+                    .addComponent(txtAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMoIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -410,17 +410,17 @@ public class NModificar extends javax.swing.JDialog {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMarcaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtMNombre))
+                    .addComponent(txtMNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMarcaLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtPais))
+                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(97, 97, 97)
                 .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMaIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -518,7 +518,7 @@ public class NModificar extends javax.swing.JDialog {
             }
             if (A_Tipo != 0) {
                 String insertinto = "INSERT INTO pieza VALUES(null ,'" + txtNombre.getText() + "'," + A_Tipo + "  );";
-                System.out.println(insertinto);
+                //System.out.println(insertinto);
                 s.executeUpdate(insertinto);
             }
             padre.dispose();
@@ -552,7 +552,7 @@ public class NModificar extends javax.swing.JDialog {
             }
             if (A_Marca != 0) {
                 String insertinto = "INSERT INTO modelo VALUES(null ,'" + txtMName.getText() + "'," + A_Marca + ",'" + txtAS.getText() + "', '" + txtAR.getText() + "'  );";
-                System.out.println(insertinto);
+                // System.out.println(insertinto);
                 s.executeUpdate(insertinto);
             }
             introducirMotor();
@@ -576,7 +576,7 @@ public class NModificar extends javax.swing.JDialog {
         try {
 
             String insertinto = "INSERT INTO tipo VALUES(null ,'" + txtPNombre.getText() + "'  );";
-            System.out.println(insertinto);
+            //System.out.println(insertinto);
             s.executeUpdate(insertinto);
             padre.dispose();
             this.dispose();
@@ -599,7 +599,7 @@ public class NModificar extends javax.swing.JDialog {
             //Statement s = conexion.createStatement();
             //int precio = parseInt(txtPrecio.getText());
             String insertinto = "INSERT INTO marca VALUES(null ,'" + txtMNombre.getText() + "','" + txtPais.getText() + "'  );";
-            System.out.println(insertinto);
+            //System.out.println(insertinto);
             s.executeUpdate(insertinto);
             padre.dispose();
             this.dispose();
@@ -621,8 +621,8 @@ public class NModificar extends javax.swing.JDialog {
         try {
 
             String sentencias = "Nombre='" + txtNombre.getText() + "' , A_Tipo=" + cbTipo.getSelectedIndex();
-            System.out.println(sentencias);
-            System.out.println(this.getFila());
+            // System.out.println(sentencias);
+            // System.out.println(this.getFila());
             String modificar = "UPDATE pieza SET " + sentencias + " WHERE P_Pieza=" + this.getFila() + "";
             s.executeUpdate(modificar);
             padre.dispose();
@@ -652,9 +652,9 @@ public class NModificar extends javax.swing.JDialog {
             while (rs.next()) {
                 mar = rs.getInt(1);
             }
-            System.out.println("mar");
+            //  System.out.println("mar");
             String sentencias = "Nombre='" + txtMName.getText() + "', A_Marca=" + mar + " , AnoSalida='" + txtAS.getText() + "' , AnoExtincion='" + txtAR.getText() + "'";
-            System.out.println(sentencias);
+            //System.out.println(sentencias);
             String modificar = "UPDATE modelo SET " + sentencias + " WHERE P_Modelo=" + this.getFila() + "";
             s.executeUpdate(modificar);
             padre.dispose();
@@ -676,7 +676,7 @@ public class NModificar extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
             String sentencias = "Nombre='" + txtPNombre.getText() + "'";
-            System.out.println(sentencias);
+            //System.out.println(sentencias);
             String modificar = "UPDATE tipo SET " + sentencias + " WHERE P_Tipo=" + this.getFila() + "";
             s.executeUpdate(modificar);
             padre.dispose();
@@ -697,7 +697,7 @@ public class NModificar extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
             String sentencias = "Nombre='" + txtMNombre.getText() + "' , Pais='" + txtPais.getText() + "'";
-            System.out.println(sentencias);
+            // System.out.println(sentencias);
             String modificar = "UPDATE marca SET " + sentencias + " WHERE P_Marca=" + this.getFila() + "";
             s.executeUpdate(modificar);
             padre.dispose();
@@ -840,7 +840,7 @@ public class NModificar extends javax.swing.JDialog {
     }
 
     public void introducirMotor() throws SQLException {
-        System.out.println("Introduciendo motor ");
+        //System.out.println("Introduciendo motor ");
         String introducir = null;
         String cModelo = "SELECT  m.`P_Modelo`, ma.`Nombre`\n"
                 + "                FROM modelo m, marca ma\n"
@@ -894,9 +894,9 @@ public class NModificar extends javax.swing.JDialog {
                     break;
 
             }
-            System.out.println(introducir);
+            //System.out.println(introducir);
             s.executeUpdate(introducir);
-            System.out.println("MMotor introducido");
+            //System.out.println("MMotor introducido");
         }
     }
 
@@ -971,7 +971,7 @@ public class NModificar extends javax.swing.JDialog {
             setFila(pm);
         }
         if (pga.getTipo() == "modelo") {
-            System.out.println("Relleno modelo");
+            //System.out.println("Relleno modelo");
             int pM = 0;
             String nombre = null;
             int aMarca = 0;
@@ -1017,16 +1017,16 @@ public class NModificar extends javax.swing.JDialog {
         if (pga.getTipo() == "tipo") {
             int pt = 0;
             String nombre = "";
-            System.out.println("pgNombre= " + pga.getNombre());
+            //System.out.println("pgNombre= " + pga.getNombre());
             ResultSet ese = s.executeQuery("SELECT * "
                     + "                    FROM tipo t "
                     + "                    WHERE t.Nombre = '" + pga.getNombre() + "'");
             while (ese.next()) {
-                System.out.println("1Resultado");
+                //System.out.println("1Resultado");
                 pt = ese.getInt(1);
                 nombre = ese.getString(2);
             }
-            System.out.println(nombre);
+            //System.out.println(nombre);
             setFila(pt);
             txtPNombre.setText(nombre);
         }

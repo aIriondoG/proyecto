@@ -263,7 +263,7 @@ public class Compra extends javax.swing.JDialog {
                     idUsuario = rs.getInt(1);
                 }
                 String insertinto = "INSERT INTO carrito VALUES(null , " + idUsuario + " );";
-                System.out.println(insertinto);
+                //System.out.println(insertinto);
                 s.executeUpdate(insertinto);
 
                 ResultSet rs2 = s.executeQuery(" SELECT  r.`P_Recambio` \n"
@@ -298,9 +298,9 @@ public class Compra extends javax.swing.JDialog {
                 int mes = fecha.get(Calendar.MONTH) + 1;
                 int dia = fecha.get(Calendar.DAY_OF_MONTH);
                 String fech = dia + "/" + mes + "/" + año;
-                System.out.println(fech);
+                //System.out.println(fech);
                 String ifactura = "INSERT INTO factura VALUES(null ,'" + fech + "', " + idCarrito + " , " + idDesguace + " );";
-                System.out.println(ifactura);
+                //System.out.println(ifactura);
                 s.executeUpdate(ifactura);
 
                 String actualizarStock = "UPDATE recambio SET CantidadDisponible = CantidadDisponible-" + txtCantidad.getText() + " WHERE P_recambio = " + idRecambio;
@@ -354,7 +354,7 @@ public class Compra extends javax.swing.JDialog {
         } catch (HelpSetException ex) {
             Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -379,7 +379,7 @@ public class Compra extends javax.swing.JDialog {
                 this.dispose();
                 btnComprar.setEnabled(false);
             }
-            System.out.println("precio: " + precio);
+            //System.out.println("precio: " + precio);
             lblPrecio.setText(precio + "");
             lblCantidad.setText(cantidad + "");
         }

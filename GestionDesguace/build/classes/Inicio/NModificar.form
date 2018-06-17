@@ -119,20 +119,20 @@
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="jLabel12" max="32767" attributes="0"/>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel1" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtNombre" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cbTipo" alignment="3" max="32767" attributes="0"/>
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel2" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="cbTipo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -336,36 +336,36 @@
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="jLabel11" max="32767" attributes="0"/>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel5" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtMName" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtMName" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel6" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="cbMarca" alignment="3" max="32767" attributes="0"/>
+                      <Component id="cbMarca" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel7" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtAS" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtAS" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel8" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtAR" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtAR" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -481,20 +481,20 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabel14" max="32767" attributes="0"/>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel9" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtMNombre" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtMNombre" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel10" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="txtPais" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txtPais" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">

@@ -60,7 +60,7 @@ public class PiezaUsuario extends javax.swing.JFrame {
         btnVolver.setIcon(volverDef);
         btnNext.setIcon(nextDef);
         icono.setIcon(iconDef);
-        
+
         Image rIcon = Toolkit.getDefaultToolkit().getImage("iconos/reparacion.png");
         this.setIconImage(rIcon);
     }
@@ -364,7 +364,7 @@ public class PiezaUsuario extends javax.swing.JFrame {
         int row = tabla.getSelectedRow();
         Object pieza = modelo.getValueAt(row, 1);
         pi = pieza.toString();
-        System.out.println(pi);
+        // System.out.println(pi);
         setPieza(pi);
         lblPieza.setText(pi);
         jPanel4.setVisible(true);
@@ -373,7 +373,7 @@ public class PiezaUsuario extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         try {
-            System.out.println(modelo.getRowCount());
+            //System.out.println(modelo.getRowCount());
 
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 modelo.removeRow(i);
@@ -382,7 +382,7 @@ public class PiezaUsuario extends javax.swing.JFrame {
             }
 
             Statement s = conexion.createStatement();
-            System.out.println(cbPieza.getSelectedItem().toString());
+            //System.out.println(cbPieza.getSelectedItem().toString());
             ResultSet rs = s.executeQuery("SELECT  t.Nombre , p.Nombre\n"
                     + "FROM pieza p , tipo t\n"
                     + "WHERE p.A_Tipo=t.P_Tipo\n"

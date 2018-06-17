@@ -442,7 +442,7 @@ public class PrincipalUsuario extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         try {
-            System.out.println(modelo.getRowCount());
+            //System.out.println(modelo.getRowCount());
 
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 modelo.removeRow(i);
@@ -451,7 +451,7 @@ public class PrincipalUsuario extends javax.swing.JFrame {
             }
 
             Statement s = conexion.createStatement();
-            System.out.println(cbModelo.getSelectedItem().toString());
+            //System.out.println(cbModelo.getSelectedItem().toString());
             ResultSet rs = s.executeQuery("SELECT  ma.Nombre ,mo.Nombre , mo.AnoSalida , mo.AnoExtincion "
                     + "                    FROM modelo mo , marca ma "
                     + "                    WHERE mo.A_Marca=ma.P_Marca "

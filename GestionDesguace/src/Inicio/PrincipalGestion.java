@@ -53,7 +53,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
         OpcionesEmpresa oe = new OpcionesEmpresa(this, false);//= new OpcionesEmpresa(this , false);
         oe.setVisible(false);
         valor = oe.getValor();
-        System.out.println(valor);
+        //System.out.println(valor);
         initComponents();
         Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((pantalla.width / 2) - (this.getWidth() / 2), (pantalla.height / 2) - (this.getHeight() / 2));
@@ -459,7 +459,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         seleccion++;
         try {
-            System.out.println(modelo.getRowCount());
+            //System.out.println(modelo.getRowCount());
 
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 modelo.removeRow(i);
@@ -468,9 +468,9 @@ public class PrincipalGestion extends javax.swing.JFrame {
             }
             String n = valor.toLowerCase();
             Statement s = conexion.createStatement();
-            System.out.println(valor);
+            //System.out.println(valor);
             if (valor == "Pieza") {
-                System.out.println(cbMarca.getSelectedItem().toString());
+                //System.out.println(cbMarca.getSelectedItem().toString());
                 Object nuevaFila[] = {"Pieza", "Tipo"};
                 modelo.setColumnIdentifiers(nuevaFila);
                 ResultSet rs = s.executeQuery("SELECT  mo.Nombre ,ma.Nombre "
@@ -489,7 +489,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
                 if (valor == "Marca") {
                     Object nuevaFila[] = {"Marca", "Modelo", "Año de Salida", "Año de final de fabricacion"};
                     modelo.setColumnIdentifiers(nuevaFila);
-                    System.out.println(cbMarca.getSelectedItem().toString());
+                    //System.out.println(cbMarca.getSelectedItem().toString());
                     ResultSet rs = s.executeQuery("SELECT  ma.Nombre , mo.Nombre , mo.AnoSalida , mo.AnoExtincion "
                             + "                    FROM modelo mo , marca ma "
                             + "                    WHERE mo.A_Marca = ma.P_Marca "
@@ -552,7 +552,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
             int row = table.getSelectedRow();
             Object nomModelo = modelo.getValueAt(row, 2);
             Object nomPieza = modelo.getValueAt(row, 0);
-            System.out.println(nomModelo.toString() + "-" + nomPieza.toString());
+            //System.out.println(nomModelo.toString() + "-" + nomPieza.toString());
             int motor = 0;
             int pieza = 0;
             ResultSet rs = s.executeQuery("SELECT mo.P_Motor \n"
@@ -574,7 +574,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
             }
 
             String modificar = "UPDATE recambio SET CantidadDisponible = CantidadDisponible-" + txtCantidad.getText() + " WHERE A_Motor=" + motor + " AND A_Pieza =" + pieza;
-            System.out.println(modificar);
+            //System.out.println(modificar);
             s.executeUpdate(modificar);
             this.dispose();
             PrincipalGestion reload = new PrincipalGestion();
@@ -654,7 +654,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
 
                     Object end = modelo.getValueAt(row, 1);
                     Object salida = modelo.getValueAt(row, 2);
-                    System.out.println(end.toString());
+                    //System.out.println(end.toString());
                     //setNombre(end.toString());
                     ResultSet resultRell = s.executeQuery("SELECT p.P_Modelo "
                             + "                    FROM modelo p "
@@ -671,11 +671,11 @@ public class PrincipalGestion extends javax.swing.JFrame {
                     setTipo(valor);
                     row = row + 1;
                     setNombre(row + "");
-                    System.out.println(getNombre());
+                    // System.out.println(getNombre());
                     nRecambio rec = new nRecambio(this, true);
                     rec.setVisible(true);
                     //this.dispose();
-                    System.out.println("Hecho");
+                    //System.out.println("Hecho");
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Debes seleccionar una fila para poder modificarla");
@@ -691,29 +691,29 @@ public class PrincipalGestion extends javax.swing.JFrame {
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
 
         // TODO add your handling code here:
-        System.out.println("\"Eliminar\"");
+        //System.out.println("\"Eliminar\"");
         int row = table.getSelectedRow();
-        System.out.println(row);
+        //System.out.println(row);
         if (row != -1) {
             try {
                 Statement s = conexion.createStatement();
                 if (valor == "Recambio") {
-                    System.out.println("Recambio");
+                    //System.out.println("Recambio");
                     row = row + 1;
                     String modificar = "UPDATE recambio SET CantidadDisponible = 0 WHERE P_Recambio=" + (row + 1) + "";
                     s.executeUpdate(modificar);
                 }
                 if (valor == "Marca") {
-                    System.out.println("Marca");
+                    //System.out.println("Marca");
                     int id = 0;
-                    System.out.println(row);
+                    //System.out.println(row);
                     if (row == -1) {
                         JOptionPane.showMessageDialog(this, "Selecciona un modelo para borrarlo");
                     } else {
                         Object nombreMo = modelo.getValueAt(row, 1);
                         Object anoMo = modelo.getValueAt(row, 2);
-                        System.out.println("Modelo: " + nombreMo.toString());
-                        System.out.println("Salida: " + anoMo.toString());
+                        // System.out.println("Modelo: " + nombreMo.toString());
+                        //System.out.println("Salida: " + anoMo.toString());
                         ResultSet resultRell = s.executeQuery("SELECT p.P_Modelo "
                                 + "                    FROM modelo p "
                                 + "                    WHERE p.Nombre = '" + nombreMo.toString() + "'"
@@ -721,11 +721,11 @@ public class PrincipalGestion extends javax.swing.JFrame {
                         while (resultRell.next()) {
                             id = resultRell.getInt(1);
                         }
-                        System.out.println("p:" + id);
+                        //System.out.println("p:" + id);
                         s.executeUpdate("DELETE FROM modelo WHERE P_Modelo = " + id);
                     }
                 }
-                System.out.println("Intento");
+                //System.out.println("Intento");
                 this.dispose();
                 PrincipalGestion reload = new PrincipalGestion();
                 reload.setVisible(true);
@@ -801,7 +801,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
                 }
                 if (txtPrecio.getText().length() <= 4) {
                     String modificar = "UPDATE recambio SET Precio = " + txtPrecio.getText() + " WHERE P_Recambio =" + recambio;
-                    System.out.println(modificar);
+                    // System.out.println(modificar);
                     s.executeUpdate(modificar);
                     this.dispose();
                     PrincipalGestion reload = new PrincipalGestion();
@@ -1034,7 +1034,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
     public final void rellenarTabla(String n) throws SQLException {
         Statement s = conexion.createStatement();
         //n = n.toLowerCase();
-        System.out.println(n);
+        // System.out.println(n);
         if (n == "Pieza") {
             Object nuevaFila[] = {"Tipo", "Pieza"};
             modelo.setColumnIdentifiers(nuevaFila);
@@ -1080,7 +1080,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
                         + "AND m.`P_Motor`=mm.`A_Motor` \n"
                         + "AND mo.`P_Modelo` = mm.`A_Modelo`\n"
                         + "AND mo.`A_Marca`=ma.`P_Marca`   ");
-                System.out.println(rs);
+                //System.out.println(rs);
                 while (rs.next()) {
                     Object[] fila = new Object[6];
                     for (int i = 0; i < 6; i++) {
@@ -1103,7 +1103,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
         ResultSet rs = s.executeQuery("SELECT P_Recambio FROM recambio WHERE Nombre='" + dato + "' ");
         while (rs.next()) {
             p = rs.getInt(1);
-            System.out.println(p);
+            //System.out.println(p);
         }
         /*String delete = "DELETE FROM recambio WHERE recambio.P_Recambio = "+p;
         s.executeUpdate(delete);*/
