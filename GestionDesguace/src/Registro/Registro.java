@@ -11,12 +11,14 @@ import Inicio.PrincipalUsuario;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.help.HelpSetException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -244,6 +246,10 @@ public class Registro extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -310,7 +316,7 @@ public class Registro extends javax.swing.JFrame {
         return Registro.username;
     }
 
-    public void entrar() throws SQLException {
+    public void entrar() throws SQLException, MalformedURLException, HelpSetException {
         if (empresa == true) {
             OpcionesEmpresa oe = null;
             oe = new OpcionesEmpresa(this, false);

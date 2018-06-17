@@ -9,12 +9,14 @@ import Conexion.ConexionBD;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.help.HelpSetException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -39,10 +41,10 @@ public class nRecambio extends javax.swing.JDialog {
         this.setLocation((pantalla.width / 2) - (this.getWidth() / 2), (pantalla.height / 2) - (this.getHeight() / 2));
         rellenoJC();
         padre = (JFrame) parent;
-        if (pg.getAccion() == "Modificar") {
+        /*if (pg.getAccion() == "Modificar") {
             System.out.println("Modificar");
             rellenoJCM();
-        }
+        }*/
         ImageIcon volver = new ImageIcon("iconos/volver.png");
         ImageIcon volverDef = new ImageIcon(volver.getImage().getScaledInstance(30, 20, Image.SCALE_DEFAULT));
 
@@ -71,13 +73,10 @@ public class nRecambio extends javax.swing.JDialog {
         cbTipo = new javax.swing.JComboBox<>();
         cbDesguace = new javax.swing.JComboBox<>();
         txtCantidad = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        cbMotor = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnAñadir = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
@@ -115,14 +114,6 @@ public class nRecambio extends javax.swing.JDialog {
             }
         });
 
-        jLabel7.setText("Motor");
-
-        cbMotor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbMotorActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Precio");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -134,32 +125,42 @@ public class nRecambio extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(7, 7, 7)))
+                        .addGap(103, 103, 103)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbMarca, javax.swing.GroupLayout.Alignment.TRAILING, 0, 130, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbModelo, 0, 127, Short.MAX_VALUE)
                                 .addGap(3, 3, 3))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addGap(114, 114, 114)
+                        .addComponent(cbTipo, 0, 127, Short.MAX_VALUE)
+                        .addGap(3, 3, 3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(9, 9, 9))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(23, 23, 23))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(27, 27, 27)))
+                        .addGap(90, 90, 90)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbMotor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cbDesguace, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbPieza, javax.swing.GroupLayout.Alignment.TRAILING, 0, 127, Short.MAX_VALUE)
-                                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbPieza, javax.swing.GroupLayout.Alignment.TRAILING, 0, 127, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbDesguace, 0, 124, Short.MAX_VALUE)
+                                    .addComponent(txtCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                                .addGap(3, 3, 3)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,50 +168,53 @@ public class nRecambio extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbMarca))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cbModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbModelo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cbMotor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbTipo)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbPieza))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cbPieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cbDesguace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbDesguace))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtCantidad))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtPrecio))
+                .addContainerGap())
         );
 
         btnAñadir.setText("Añadir Recambio");
         btnAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAñadirActionPerformed(evt);
-            }
-        });
-
-        btnModificar.setText("Modificar Recambio");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
             }
         });
 
@@ -227,21 +231,19 @@ public class nRecambio extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAñadir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar))
+                .addComponent(btnAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,17 +255,17 @@ public class nRecambio extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(234, 234, 234))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(61, 61, 61))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(240, 240, 240))
         );
 
         pack();
@@ -277,9 +279,11 @@ public class nRecambio extends javax.swing.JDialog {
             int a_motor = 0;
             int a_pieza = 0;
             int a_desguace = 0;
-            ResultSet rs = s.executeQuery("SELECT  mo.P_Motor "
-                    + "                    FROM motor mo "
-                    + "                    WHERE  mo.Codigo = '" + cbMotor.getSelectedItem().toString() + "'");
+            ResultSet rs = s.executeQuery("SELECT mo.P_Motor \n"
+                    + "                    FROM modelo m , motor mo , modelomotor mm \n"
+                    + "                    WHERE mo.P_Motor= mm.A_Motor\n"
+                    + "                    AND mm.A_Modelo = m.P_Modelo \n"
+                    + "                    AND m.Nombre ='" + cbModelo.getSelectedItem().toString() + "'");
             while (rs.next()) {
                 a_motor = rs.getInt(1);
             }
@@ -307,6 +311,10 @@ public class nRecambio extends javax.swing.JDialog {
 
         } catch (SQLException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(nRecambio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
+            Logger.getLogger(nRecambio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAñadirActionPerformed
 
@@ -318,29 +326,29 @@ public class nRecambio extends javax.swing.JDialog {
 
     private void cbMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMarcaActionPerformed
         // TODO add your handling code here:
+        System.out.println("IOE");
+        String[] modelos;
         try {
             s = conexion.createStatement();
             cbModelo.removeAllItems();
             int numModelo = 0;
             int i = 0;
-            ResultSet rs = s.executeQuery("SELECT m.Nombre "
+            String consulta = "SELECT m.Nombre "
                     + "FROM modelo m , marca ma "
                     + "WHERE m.A_Marca= ma.P_Marca "
-                    + "AND ma.Nombre ='" + cbMarca.getSelectedItem().toString() + "'");
+                    + "AND ma.Nombre ='" + cbMarca.getSelectedItem().toString() + "'";
+
+            ResultSet rs = s.executeQuery(consulta);
             while (rs.next()) {
                 numModelo++;
             }
-            String[] modelos = new String[numModelo];
-            ResultSet rs2 = s.executeQuery("SELECT m.Nombre "
-                    + "FROM modelo m , marca ma "
-                    + "WHERE m.A_Marca= ma.P_Marca "
-                    + "AND ma.Nombre ='" + cbMarca.getSelectedItem().toString() + "'");
+            modelos = new String[numModelo];
+            ResultSet rs2 = s.executeQuery(consulta);
             while (rs2.next()) {
                 modelos[i] = rs2.getString(1);
                 i++;
             }
             for (int j = 0; j < modelos.length; j++) {
-                //System.out.println(marcas[j]);
                 cbModelo.addItem(modelos[j]);
             }
 
@@ -348,11 +356,6 @@ public class nRecambio extends javax.swing.JDialog {
             Logger.getLogger(nRecambio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cbMarcaActionPerformed
-
-    private void cbMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMotorActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_cbMotorActionPerformed
 
     private void cbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoActionPerformed
         // TODO add your handling code here:
@@ -389,48 +392,17 @@ public class nRecambio extends javax.swing.JDialog {
 
     private void cbModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbModeloActionPerformed
         // TODO add your handling code here:
-        try {
-            s = conexion.createStatement();
-            cbMotor.removeAllItems();
-            int numMotor = 0;
-            int i = 0;
-            String consulta = "SELECT mo.Codigo "
-                    + "FROM modelo m , motor mo , modelomotor mm "
-                    + "WHERE mo.P_Motor= mm.A_Motor "
-                    + "AND mm.A_Modelo = m.P_Modelo "
-                    + "AND m.Nombre ='" + cbModelo.getSelectedItem().toString() + "'";
-            ResultSet rs = s.executeQuery(consulta);
-            while (rs.next()) {
-                numMotor++;
-            }
-            String[] motores = new String[numMotor];
-            ResultSet rs2 = s.executeQuery(consulta);
-            while (rs2.next()) {
-                motores[i] = rs2.getString(1);
-                i++;
-            }
-            for (int j = 0; j < motores.length; j++) {
-                cbMotor.addItem(motores[j]);
-            }
 
-        } catch (SQLException ex) {
-            Logger.getLogger(nRecambio.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }//GEN-LAST:event_cbModeloActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cbDesguace;
     private javax.swing.JComboBox<String> cbMarca;
     private javax.swing.JComboBox<String> cbModelo;
-    private javax.swing.JComboBox<String> cbMotor;
     private javax.swing.JComboBox<String> cbPieza;
     private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JButton jButton1;
@@ -440,7 +412,6 @@ public class nRecambio extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -449,7 +420,6 @@ public class nRecambio extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
     public void rellenoJCM() {
         btnAñadir.setVisible(false);
-        btnModificar.setVisible(true);
         System.out.println("Botones cambiados");
         try {
             s = conexion.createStatement();
@@ -473,8 +443,6 @@ public class nRecambio extends javax.swing.JDialog {
                 cbTipo.setSelectedItem(rs.getString(1));
                 cbPieza.setSelectedItem(rs.getString(2));
                 //cbModelo.setSelectedItem(rs.getString(4));
-                //cbMarca.setSelectedItem(rs.getString(3));
-                cbMotor.setSelectedItem(rs.getString(5));
 
                 //cbDesguace.setSelectedItem(rs.getString(6));
                 /* System.out.println("Cantiodad: " + rs.getInt(7));
@@ -492,7 +460,7 @@ public class nRecambio extends javax.swing.JDialog {
 
     public void rellenoJC() {
         try {
-            btnModificar.setVisible(false);
+
             s = conexion.createStatement();
             //Marcas
             int numMarca = 0;

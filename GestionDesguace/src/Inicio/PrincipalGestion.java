@@ -12,13 +12,19 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.File;
 import static java.lang.Integer.parseInt;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
+import javax.help.HelpSetException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -30,9 +36,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PrincipalGestion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PrincipalGestion
-     */
     static String tip;
     static String accion;
     String valor;
@@ -43,21 +46,10 @@ public class PrincipalGestion extends javax.swing.JFrame {
     Elegir e;
     NModificar nm;
     nRecambio nr;
+    HelpBroker hb;
+    HelpSet helpset;
 
-    // seleccion = table.getSelectedRow();
-    /*
-     DefaultTableModel modelo;
-    Connection conexion = ConexionBD.conexion();
-
-    public PrincipalUsuario() throws SQLException {
-        initComponents();
-        modelo = (DefaultTableModel) tabla.getModel();
-        rellenoTabla();
-        rellenoMarcas();
-
-    }
-     */
-    public PrincipalGestion() throws SQLException {
+    public PrincipalGestion() throws SQLException, MalformedURLException, HelpSetException {
         OpcionesEmpresa oe = new OpcionesEmpresa(this, false);//= new OpcionesEmpresa(this , false);
         oe.setVisible(false);
         valor = oe.getValor();
@@ -70,6 +62,11 @@ public class PrincipalGestion extends javax.swing.JFrame {
         rellenarTabla(valor);
         rellenarBotones();
         getContentPane().setBackground(Color.white);
+        File fichero = new File("C:\\Users\\Rubén\\Documents\\NetBeansProjects\\oficialProyecto\\proyecto\\GestionDesguace\\src\\help\\help_set.hs");
+        URL hsURL = fichero.toURI().toURL();
+
+        helpset = new HelpSet(getClass().getClassLoader(), hsURL);
+        hb = helpset.createHelpBroker();
 
     }
 
@@ -102,8 +99,17 @@ public class PrincipalGestion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         btnComprar = new javax.swing.JButton();
+        lblPrecio = new javax.swing.JLabel();
+        txtPrecio = new javax.swing.JTextField();
+        btnPrecio = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         btnVolver = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mInicio = new javax.swing.JMenu();
+        menuSalir = new javax.swing.JMenuItem();
+        mAyuda = new javax.swing.JMenu();
+        menuAcerca = new javax.swing.JMenuItem();
+        menuAyuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -138,36 +144,35 @@ public class PrincipalGestion extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(174, 174, 174)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(cbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbMarca, 0, 223, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(cbModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl1)
-                            .addComponent(lbl2))
+                            .addComponent(lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                            .addComponent(cbMarca)
+                            .addComponent(cbModelo))
+                        .addGap(9, 9, 9)))
+                .addContainerGap())
         );
 
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -190,8 +195,8 @@ public class PrincipalGestion extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,27 +232,28 @@ public class PrincipalGestion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(icono, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(icono, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                            .addComponent(btnAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)))
+                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(icono, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(icono, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                 .addGap(70, 70, 70)
-                .addComponent(btnAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAñadir, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addGap(205, 205, 205))
         );
 
         pnlRecambio.setBackground(new java.awt.Color(255, 255, 255));
@@ -268,33 +274,60 @@ public class PrincipalGestion extends javax.swing.JFrame {
             }
         });
 
+        lblPrecio.setText("Precio");
+
+        btnPrecio.setText("Establecer Precio");
+        btnPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrecioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlRecambioLayout = new javax.swing.GroupLayout(pnlRecambio);
         pnlRecambio.setLayout(pnlRecambioLayout);
         pnlRecambioLayout.setHorizontalGroup(
             pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlRecambioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRecambioLayout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlRecambioLayout.createSequentialGroup()
+                        .addComponent(lblPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14)))
                 .addGap(18, 18, 18)
-                .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRecambioLayout.createSequentialGroup()
+                        .addComponent(txtCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVender, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                    .addGroup(pnlRecambioLayout.createSequentialGroup()
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlRecambioLayout.setVerticalGroup(
             pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRecambioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtCantidad)
                     .addGroup(pnlRecambioLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(btnVender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(33, 33, 33)
+                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlRecambioLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlRecambioLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(txtPrecio))
+                    .addComponent(btnPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -309,34 +342,69 @@ public class PrincipalGestion extends javax.swing.JFrame {
         });
         jToolBar1.add(btnVolver);
 
+        mInicio.setText("Inicio");
+
+        menuSalir.setText("Salir");
+        menuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSalirActionPerformed(evt);
+            }
+        });
+        mInicio.add(menuSalir);
+
+        jMenuBar1.add(mInicio);
+
+        mAyuda.setText("Ayuda");
+
+        menuAcerca.setText("Acerca de");
+        menuAcerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAcercaActionPerformed(evt);
+            }
+        });
+        mAyuda.add(menuAcerca);
+
+        menuAyuda.setText("Ayuda");
+        menuAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAyudaActionPerformed(evt);
+            }
+        });
+        mAyuda.add(menuAyuda);
+
+        jMenuBar1.add(mAyuda);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlRecambio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pnlRecambio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26))
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlRecambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlRecambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -427,23 +495,23 @@ public class PrincipalGestion extends javax.swing.JFrame {
                 if (valor == "Recambio") {
 
                     //System.out.println(cbMarca.getSelectedItem().toString());
-                    Object nuevaFila[] = {"Recambio", "Marca", "Modelo", "Desguace", "Cantidad disponible"};
+                    Object nuevaFila[] = {"Recambio", "Marca", "Modelo", "Desguace", "Cantidad disponible", "Precio"};
                     modelo.setColumnIdentifiers(nuevaFila);
-                    ResultSet rs = s.executeQuery("SELECT p.Nombre as Recambio, ma.Nombre as Marca, mo.Nombre as Modelo, d.Nombre as Desguace, r.CantidadDisponible as Cantidad\n"
-                            + "FROM pieza p , modelo mo , marca ma , desguace d , recambio r\n"
-                            + "WHERE \n"
-                            + "    r.A_Pieza=p.P_Pieza\n"
-                            + "AND\n"
-                            + "    mo.P_Modelo=r.A_Modelo\n"
-                            + "AND \n"
-                            + "    ma.P_Marca = mo.A_Marca\n"
-                            + "AND \n"
-                            + "    d.P_Desguace=r.A_Desguace\n"
-                            + "                 ");
+                    ResultSet rs = s.executeQuery("SELECT  p.`Nombre`, ma.`Nombre` , mo.Nombre , d.Nombre,  r.CantidadDisponible , r.Precio\n"
+                            + "FROM recambio r, pieza p, modelo mo , marca ma, desguace d, motor m, modelomotor mm\n"
+                            + "WHERE r.`A_Motor`=m.`P_Motor`\n"
+                            + "AND r.`A_Pieza`=p.`P_Pieza`\n"
+                            + "AND r.`A_Desguace`=d.`P_Desguace`\n"
+                            + "AND m.`P_Motor`=mm.`A_Motor` \n"
+                            + "AND mo.`P_Modelo` = mm.`A_Modelo`\n"
+                            + "AND mo.`A_Marca`=ma.`P_Marca` "
+                            + "AND mo.Nombre = '" + cbModelo.getSelectedItem().toString() + "'"
+                            + "ORDER BY p.`Nombre`");
+                    /**/
 
                     while (rs.next()) {
-                        Object[] fila = new Object[5];
-                        for (int i = 0; i < 5; i++) {
+                        Object[] fila = new Object[6];
+                        for (int i = 0; i < 6; i++) {
                             fila[i] = rs.getObject(i + 1);
                         }
                         modelo.addRow(fila);
@@ -470,14 +538,40 @@ public class PrincipalGestion extends javax.swing.JFrame {
             Statement s = conexion.createStatement();
 
             int row = table.getSelectedRow();
+            Object nomModelo = modelo.getValueAt(row, 2);
+            Object nomPieza = modelo.getValueAt(row, 0);
+            System.out.println(nomModelo.toString() + "-" + nomPieza.toString());
+            int motor = 0;
+            int pieza = 0;
+            ResultSet rs = s.executeQuery("SELECT mo.P_Motor \n"
+                    + "FROM modelo m , motor mo , modelomotor mm \n"
+                    + "WHERE mm.`A_Motor` = mo.`P_Motor`\n"
+                    + "AND mm.`A_Modelo` = m.`P_Modelo` \n"
+                    + "AND m.`Nombre` = '" + nomModelo.toString() + "'");
 
-            String modificar = "UPDATE recambio SET CantidadDisponible = CantidadDisponible-" + txtCantidad.getText() + " WHERE P_Recambio=" + (row + 1) + "";
+            while (rs.next()) {
+                motor = rs.getInt(1);
+            }
+
+            ResultSet rs2 = s.executeQuery("SELECT p.`P_Pieza`\n"
+                    + "FROM pieza p\n"
+                    + "WHERE p.`Nombre` = '" + nomPieza.toString() + "'");
+
+            while (rs2.next()) {
+                pieza = rs2.getInt(1);
+            }
+
+            String modificar = "UPDATE recambio SET CantidadDisponible = CantidadDisponible-" + txtCantidad.getText() + " WHERE A_Motor=" + motor + " AND A_Pieza =" + pieza;
             System.out.println(modificar);
             s.executeUpdate(modificar);
             this.dispose();
             PrincipalGestion reload = new PrincipalGestion();
             reload.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -488,13 +582,39 @@ public class PrincipalGestion extends javax.swing.JFrame {
         try {
             Statement s = conexion.createStatement();
             int row = table.getSelectedRow();
+            Object nomModelo = modelo.getValueAt(row, 2);
+            Object nomPieza = modelo.getValueAt(row, 0);
+            //System.out.println(nomModelo.toString() + "-" + nomPieza.toString());
+            int motor = 0;
+            int pieza = 0;
+            ResultSet rs = s.executeQuery("SELECT mo.P_Motor \n"
+                    + "FROM modelo m , motor mo , modelomotor mm \n"
+                    + "WHERE mm.`A_Motor` = mo.`P_Motor`\n"
+                    + "AND mm.`A_Modelo` = m.`P_Modelo` \n"
+                    + "AND m.`Nombre` = '" + nomModelo.toString() + "'");
 
-            String modificar = "UPDATE recambio SET CantidadDisponible = CantidadDisponible+" + txtCantidad.getText() + " WHERE P_Recambio=" + (row + 1) + "";
+            while (rs.next()) {
+                motor = rs.getInt(1);
+            }
+
+            ResultSet rs2 = s.executeQuery("SELECT p.`P_Pieza`\n"
+                    + "FROM pieza p\n"
+                    + "WHERE p.`Nombre` = '" + nomPieza.toString() + "'");
+
+            while (rs2.next()) {
+                pieza = rs2.getInt(1);
+            }
+
+            String modificar = "UPDATE recambio SET CantidadDisponible = CantidadDisponible+" + txtCantidad.getText() + " WHERE A_Motor=" + motor + " AND A_Pieza =" + pieza;
             s.executeUpdate(modificar);
             this.dispose();
             PrincipalGestion reload = new PrincipalGestion();
             reload.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -542,11 +662,11 @@ public class PrincipalGestion extends javax.swing.JFrame {
                     System.out.println(getNombre());
                     nRecambio rec = new nRecambio(this, true);
                     rec.setVisible(true);
-                    this.dispose();
+                    //this.dispose();
                     System.out.println("Hecho");
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Selecciona un modelo a modificar");
+                JOptionPane.showMessageDialog(this, "Debes seleccionar una fila para poder modificarla");
             }
 
             //e = new Elegir(this, true);
@@ -561,50 +681,61 @@ public class PrincipalGestion extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("\"Eliminar\"");
         int row = table.getSelectedRow();
-
-        try {
-            Statement s = conexion.createStatement();
-            if (valor == "Recambio") {
-                System.out.println("Recambio");
-                row = row + 1;
-                s.executeUpdate("DELETE FROM recambio WHERE P_Recambio = " + row);
-            }
-            if (valor == "Marca") {
-                System.out.println("Marca");
-                int id = 0;
-                System.out.println(row);
-                if (row == -1) {
-                    JOptionPane.showMessageDialog(this, "Selecciona un modelo para borrarlo");
-                } else {
-                    Object nombreMo = modelo.getValueAt(row, 1);
-                    Object anoMo = modelo.getValueAt(row, 2);
-                    System.out.println("Modelo: " + nombreMo.toString());
-                    System.out.println("Salida: " + anoMo.toString());
-                    ResultSet resultRell = s.executeQuery("SELECT p.P_Modelo "
-                            + "                    FROM modelo p "
-                            + "                    WHERE p.Nombre = '" + nombreMo.toString() + "'"
-                            + "                    AND p.AnoSalida = '" + anoMo.toString() + "'");
-                    while (resultRell.next()) {
-                        id = resultRell.getInt(1);
-                    }
-                    System.out.println("p:" + id);
-                    s.executeUpdate("DELETE FROM modelo WHERE P_Modelo = " + id);
+        System.out.println(row);
+        if (row != -1) {
+            try {
+                Statement s = conexion.createStatement();
+                if (valor == "Recambio") {
+                    System.out.println("Recambio");
+                    row = row + 1;
+                    String modificar = "UPDATE recambio SET CantidadDisponible = 0 WHERE P_Recambio=" + (row + 1) + "";
+                    s.executeUpdate(modificar);
                 }
+                if (valor == "Marca") {
+                    System.out.println("Marca");
+                    int id = 0;
+                    System.out.println(row);
+                    if (row == -1) {
+                        JOptionPane.showMessageDialog(this, "Selecciona un modelo para borrarlo");
+                    } else {
+                        Object nombreMo = modelo.getValueAt(row, 1);
+                        Object anoMo = modelo.getValueAt(row, 2);
+                        System.out.println("Modelo: " + nombreMo.toString());
+                        System.out.println("Salida: " + anoMo.toString());
+                        ResultSet resultRell = s.executeQuery("SELECT p.P_Modelo "
+                                + "                    FROM modelo p "
+                                + "                    WHERE p.Nombre = '" + nombreMo.toString() + "'"
+                                + "                    AND p.AnoSalida = '" + anoMo.toString() + "'");
+                        while (resultRell.next()) {
+                            id = resultRell.getInt(1);
+                        }
+                        System.out.println("p:" + id);
+                        s.executeUpdate("DELETE FROM modelo WHERE P_Modelo = " + id);
+                    }
+                }
+                System.out.println("Intento");
+                this.dispose();
+                PrincipalGestion reload = new PrincipalGestion();
+                reload.setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (HelpSetException ex) {
+                Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("Intento");
-            this.dispose();
-            PrincipalGestion reload = new PrincipalGestion();
-            reload.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar una fila");
         }
     }//GEN-LAST:event_btnEliminarMouseClicked
 
     private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        Registro r = new Registro();
-        r.setVisible(true);
+        //Registro r = new Registro();
+        //r.setVisible(true);
+        OpcionesEmpresa oe = new OpcionesEmpresa(this, true);
+        oe.setVisible(true);
     }//GEN-LAST:event_btnVolverMouseClicked
 
     private void btnAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAñadirMouseClicked
@@ -633,6 +764,65 @@ public class PrincipalGestion extends javax.swing.JFrame {
             Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAñadirMouseClicked
+
+    private void btnPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrecioActionPerformed
+        // TODO add your handling code here:
+        try {
+            Statement s = conexion.createStatement();
+
+            int row = table.getSelectedRow();
+            Object nomModelo = modelo.getValueAt(row, 2);
+            Object nomPieza = modelo.getValueAt(row, 0);
+            int recambio = 0;
+            if (row != -1) {
+                ResultSet rs = s.executeQuery("SELECT r.`P_Recambio`\n"
+                        + "FROM recambio r , pieza p , modelo m , motor mo , modelomotor mm\n"
+                        + "WHERE r.`A_Pieza` = p.`P_Pieza`\n"
+                        + "AND r.`A_Motor` = mo.`P_Motor`\n"
+                        + "AND mm.`A_Motor` = mo.`P_Motor`\n"
+                        + "AND mm.`A_Modelo` = m.`P_Modelo`\n"
+                        + "AND m.`Nombre` = '" + nomModelo.toString() + "'\n"
+                        + "AND p.`Nombre` = '" + nomPieza.toString() + "'");
+
+                while (rs.next()) {
+                    recambio = rs.getInt(1);
+                }
+                if (txtPrecio.getText().length() <= 4) {
+                    String modificar = "UPDATE recambio SET Precio = " + txtPrecio.getText() + " WHERE P_Recambio =" + recambio;
+                    System.out.println(modificar);
+                    s.executeUpdate(modificar);
+                    this.dispose();
+                    PrincipalGestion reload = new PrincipalGestion();
+                    reload.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "El precio debe estar entre 1 y 1000 y solo puede contener un decimal.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Debes seleccionar un recambio");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
+            Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnPrecioActionPerformed
+
+    private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_menuSalirActionPerformed
+
+    private void menuAcercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAcercaActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Creado por Adrian Iriondo Gonzalez, como proyecto del FP Desarrollo de aplicaciones Multiplataforma");
+    }//GEN-LAST:event_menuAcercaActionPerformed
+
+    private void menuAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAyudaActionPerformed
+        // TODO add your handling code here:
+        hb.enableHelpOnButton(menuAyuda, "gestion", helpset);
+    }//GEN-LAST:event_menuAyudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -668,6 +858,10 @@ public class PrincipalGestion extends javax.swing.JFrame {
                     new PrincipalGestion().setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (HelpSetException ex) {
+                    Logger.getLogger(PrincipalGestion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -679,12 +873,14 @@ public class PrincipalGestion extends javax.swing.JFrame {
     private javax.swing.JButton btnComprar;
     private javax.swing.JLabel btnEliminar;
     private javax.swing.JLabel btnModificar;
+    private javax.swing.JButton btnPrecio;
     private javax.swing.JButton btnVender;
     private javax.swing.JLabel btnVolver;
     private javax.swing.JComboBox<String> cbMarca;
     private javax.swing.JComboBox<String> cbModelo;
     private javax.swing.JLabel icono;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -693,9 +889,16 @@ public class PrincipalGestion extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JMenu mAyuda;
+    private javax.swing.JMenu mInicio;
+    private javax.swing.JMenuItem menuAcerca;
+    private javax.swing.JMenuItem menuAyuda;
+    private javax.swing.JMenuItem menuSalir;
     private javax.swing.JPanel pnlRecambio;
     private javax.swing.JTable table;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
     public static String getTipo() {
         return tip;
@@ -786,7 +989,32 @@ public class PrincipalGestion extends javax.swing.JFrame {
 
         }
         if (n == "Recambio") {
-            jPanel3.setVisible(false);
+            // jPanel3.setVisible(false);
+            btnModificar.setVisible(false);
+            lbl1.setText(n);
+            lbl1.setText("Modelo");
+            int i = 0;
+            int num = 0;
+            Statement s = conexion.createStatement();
+            ResultSet rs = s.executeQuery("SELECT  ma.Nombre "
+                    + "                    FROM  marca ma ");
+            while (rs.next()) {
+                num++;
+            }
+            ResultSet query = s.executeQuery("SELECT  ma.Nombre "
+                    + "                    FROM  marca ma ");
+            String[] marcas = new String[num];
+
+            while (query.next()) {
+                //System.out.println(" " + query.getString(1));
+                marcas[i] = query.getString(1);
+                i++;
+
+            }
+            for (int j = 0; j < marcas.length; j++) {
+                //System.out.println(marcas[j]);
+                cbMarca.addItem(marcas[j]);
+            }
         }
 
     }
@@ -851,7 +1079,6 @@ public class PrincipalGestion extends javax.swing.JFrame {
 
             }
         }
-
     }
 
     public void eliminar(String dato) throws SQLException {
@@ -885,7 +1112,7 @@ public class PrincipalGestion extends javax.swing.JFrame {
         ImageIcon buscar = new ImageIcon("iconos/buscar.png");
         ImageIcon buscarDef = new ImageIcon(buscar.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
 
-        ImageIcon volver = new ImageIcon("iconos/logout.png");
+        ImageIcon volver = new ImageIcon("iconos/volver.png");
         ImageIcon volverDef = new ImageIcon(volver.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 
         ImageIcon icon = new ImageIcon("iconos/reparacion.png");

@@ -12,12 +12,14 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import static java.lang.Integer.parseInt;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.help.HelpSetException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -34,10 +36,11 @@ public class NModificar extends javax.swing.JDialog {
     PrincipalGestion pga = null;
     Statement s = conexion.createStatement();
     int fila = 0;
+    JFrame padre;
 
     public NModificar(java.awt.Frame parent, String titulo, boolean modal) throws SQLException {
         super(parent, titulo, modal);
-        parent.dispose();
+        padre = (JFrame) parent;
         initComponents();
         Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation((pantalla.width / 2) - (this.getWidth() / 2), (pantalla.height / 2) - (this.getHeight() / 2));
@@ -160,30 +163,36 @@ public class NModificar extends javax.swing.JDialog {
                         .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombre)
                             .addComponent(cbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel12)
                     .addGroup(pnlPiezaLayout.createSequentialGroup()
-                        .addComponent(btnPIntroducir)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(142, 142, 142))
+                    .addGroup(pnlPiezaLayout.createSequentialGroup()
+                        .addComponent(btnPIntroducir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnPModificar)))
+                        .addComponent(btnPModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlPiezaLayout.setVerticalGroup(
             pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPiezaLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel12)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlPiezaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtNombre))
                 .addGap(18, 18, 18)
                 .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbTipo)
+                    .addGroup(pnlPiezaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(92, 92, 92)
                 .addGroup(pnlPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPIntroducir)
-                    .addComponent(btnPModificar)))
+                    .addComponent(btnPIntroducir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pnlTipos.setBackground(new java.awt.Color(255, 255, 255));
@@ -220,31 +229,34 @@ public class NModificar extends javax.swing.JDialog {
             .addGroup(pnlTiposLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addGroup(pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTiposLayout.createSequentialGroup()
-                            .addComponent(btnTIntro)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTModificar))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlTiposLayout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtPNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(pnlTiposLayout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(99, 99, 99))
+                    .addGroup(pnlTiposLayout.createSequentialGroup()
+                        .addComponent(btnTIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnTModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlTiposLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPNombre)))
+                .addGap(23, 23, 23))
         );
         pnlTiposLayout.setVerticalGroup(
             pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTiposLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel13)
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlTiposLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addComponent(txtPNombre))
+                .addGap(132, 132, 132)
                 .addGroup(pnlTiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTIntro)
-                    .addComponent(btnTModificar)))
+                    .addComponent(btnTIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pnlModelo.setBackground(new java.awt.Color(255, 255, 255));
@@ -283,14 +295,16 @@ public class NModificar extends javax.swing.JDialog {
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlModeloLayout.createSequentialGroup()
                         .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnlModeloLayout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(8, 8, 8)))
                         .addGap(55, 55, 55)
                         .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbMarca, 0, 100, Short.MAX_VALUE)
+                            .addComponent(cbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtMName)))
                     .addGroup(pnlModeloLayout.createSequentialGroup()
-                        .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(14, 14, 14)
@@ -298,39 +312,47 @@ public class NModificar extends javax.swing.JDialog {
                             .addComponent(txtAR)
                             .addComponent(txtAS)))
                     .addGroup(pnlModeloLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(151, 151, 151))
                     .addGroup(pnlModeloLayout.createSequentialGroup()
-                        .addComponent(btnMoIntro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMoModificar)))
+                        .addComponent(btnMoIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btnMoModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlModeloLayout.setVerticalGroup(
             pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlModeloLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel11)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtMName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlModeloLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtMName))
                 .addGap(18, 18, 18)
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlModeloLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbMarca))
                 .addGap(18, 18, 18)
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlModeloLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtAS))
                 .addGap(18, 18, 18)
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlModeloLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtAR))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlModeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMoIntro)
-                    .addComponent(btnMoModificar)))
+                    .addComponent(btnMoIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMoModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pnlMarca.setBackground(new java.awt.Color(255, 255, 255));
@@ -365,36 +387,44 @@ public class NModificar extends javax.swing.JDialog {
                 .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlMarcaLayout.createSequentialGroup()
                         .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnlMarcaLayout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
                         .addGap(18, 18, 18)
                         .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMNombre)
                             .addComponent(txtPais)))
-                    .addComponent(jLabel14)
                     .addGroup(pnlMarcaLayout.createSequentialGroup()
-                        .addComponent(btnMaIntro)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(123, 123, 123))
+                    .addGroup(pnlMarcaLayout.createSequentialGroup()
+                        .addComponent(btnMaIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnMaModificar)))
+                        .addComponent(btnMaModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlMarcaLayout.setVerticalGroup(
             pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMarcaLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel14)
+                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtMNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlMarcaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtMNombre))
                 .addGap(18, 18, 18)
                 .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlMarcaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtPais))
+                .addGap(97, 97, 97)
                 .addGroup(pnlMarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMaIntro)
-                    .addComponent(btnMaModificar)))
+                    .addComponent(btnMaIntro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMaModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -412,14 +442,14 @@ public class NModificar extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCancelar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(755, 755, 755))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
+                .addContainerGap()
+                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -458,7 +488,7 @@ public class NModificar extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnlPieza, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -491,10 +521,15 @@ public class NModificar extends javax.swing.JDialog {
                 System.out.println(insertinto);
                 s.executeUpdate(insertinto);
             }
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -521,11 +556,16 @@ public class NModificar extends javax.swing.JDialog {
                 s.executeUpdate(insertinto);
             }
             introducirMotor();
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
 
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -538,10 +578,15 @@ public class NModificar extends javax.swing.JDialog {
             String insertinto = "INSERT INTO tipo VALUES(null ,'" + txtPNombre.getText() + "'  );";
             System.out.println(insertinto);
             s.executeUpdate(insertinto);
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -556,10 +601,15 @@ public class NModificar extends javax.swing.JDialog {
             String insertinto = "INSERT INTO marca VALUES(null ,'" + txtMNombre.getText() + "','" + txtPais.getText() + "'  );";
             System.out.println(insertinto);
             s.executeUpdate(insertinto);
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -575,10 +625,15 @@ public class NModificar extends javax.swing.JDialog {
             System.out.println(this.getFila());
             String modificar = "UPDATE pieza SET " + sentencias + " WHERE P_Pieza=" + this.getFila() + "";
             s.executeUpdate(modificar);
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -602,10 +657,15 @@ public class NModificar extends javax.swing.JDialog {
             System.out.println(sentencias);
             String modificar = "UPDATE modelo SET " + sentencias + " WHERE P_Modelo=" + this.getFila() + "";
             s.executeUpdate(modificar);
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -619,10 +679,15 @@ public class NModificar extends javax.swing.JDialog {
             System.out.println(sentencias);
             String modificar = "UPDATE tipo SET " + sentencias + " WHERE P_Tipo=" + this.getFila() + "";
             s.executeUpdate(modificar);
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -635,11 +700,15 @@ public class NModificar extends javax.swing.JDialog {
             System.out.println(sentencias);
             String modificar = "UPDATE marca SET " + sentencias + " WHERE P_Marca=" + this.getFila() + "";
             s.executeUpdate(modificar);
-
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -648,9 +717,14 @@ public class NModificar extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         try {
             // TODO add your handling code here:
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
         pga.setVisible(true);
@@ -660,10 +734,15 @@ public class NModificar extends javax.swing.JDialog {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         try {
+            padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
             pga.setVisible(true);
         } catch (SQLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HelpSetException ex) {
             Logger.getLogger(NModificar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -809,6 +888,9 @@ public class NModificar extends javax.swing.JDialog {
                     break;
                 case "Honda":
                     introducir = "INSERT INTO modelomotor VALUES (null , " + rc.getInt(1) + " , 12)";
+                    break;
+                default:
+                    introducir = "INSERT INTO modelomotor VALUES (null , " + rc.getInt(1) + " , 10)";
                     break;
 
             }
