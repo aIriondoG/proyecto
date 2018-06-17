@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bbdddirecetas;
+package bbddDesguace;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -233,46 +233,46 @@ FROM
             //Audi
             introducir("MODELO", "null,'A1',1,'2010','Actualmente'");
             introducir("MODELO", "null,'A2',1,'2000','2005'");
-            introducir("MODELO", "null,'A3',1,'1996','2003'");
-            introducir("MODELO", "null,'A3',1,'2003','2012'");
-            introducir("MODELO", "null,'A3',1,'2012','Actualmente'");
-            introducir("MODELO", "null,'A4',1,'1994','2000'");
-            introducir("MODELO", "null,'A4',1,'2000','2004'");
-            introducir("MODELO", "null,'A4',1,'2000','2004'");
-            introducir("MODELO", "null,'A4',1,'2004','2008'");
-            introducir("MODELO", "null,'A4',1,'2008','2015'");
-            introducir("MODELO", "null,'A4',1,'2015','Actualmente'");
+            introducir("MODELO", "null,'A3 I',1,'1996','2003'");
+            introducir("MODELO", "null,'A3 II',1,'2003','2012'");
+            introducir("MODELO", "null,'A3 III',1,'2012','Actualmente'");
+            introducir("MODELO", "null,'A4 I',1,'1994','2000'");
+            introducir("MODELO", "null,'A4 II',1,'2000','2004'");
+            introducir("MODELO", "null,'A4 III',1,'2000','2004'");
+            introducir("MODELO", "null,'A4 IV',1,'2004','2008'");
+            introducir("MODELO", "null,'A4 V',1,'2008','2015'");
+            introducir("MODELO", "null,'A4 VI',1,'2015','Actualmente'");
             introducir("MODELO", "null,'A5',1,'2007','Actualmente'");
-            introducir("MODELO", "null,'A6',1,'1994','1997'");
-            introducir("MODELO", "null,'A6',1,'1997','2005'");
-            introducir("MODELO", "null,'A6',1,'2005','2011'");
-            introducir("MODELO", "null,'A6',1,'2011','Actualmente'");
+            introducir("MODELO", "null,'A6 I',1,'1994','1997'");
+            introducir("MODELO", "null,'A6 II',1,'1997','2005'");
+            introducir("MODELO", "null,'A6 III',1,'2005','2011'");
+            introducir("MODELO", "null,'A6 IV',1,'2011','Actualmente'");
             introducir("MODELO", "null,'A7',1,'2010','Actualmente'");
             //Mercedes
             introducir("MODELO", "null,'190E',2,1982,1993");
-            introducir("MODELO", "null,'Clase A',2,'1997','2004'");
-            introducir("MODELO", "null,'Clase A',2,'2004','2012'");
-            introducir("MODELO", "null,'Clase A',2,'2012','Actualmente'");
-            introducir("MODELO", "null,'Clase B',2,'2005','2011'");
-            introducir("MODELO", "null,'Clase B',2,'2011','Actualmente'");
-            introducir("MODELO", "null,'Clase C',2,'1993','2000'");
-            introducir("MODELO", "null,'Clase C',2,'2000','2007'");
-            introducir("MODELO", "null,'Clase C',2,'2007','2014'");
-            introducir("MODELO", "null,'Clase C',2,'2014','Actualmente'");
-            introducir("MODELO", "null,'Clase E',2,'1993','1995'");
-            introducir("MODELO", "null,'Clase E',2,'1995','2003'");
-            introducir("MODELO", "null,'Clase E',2,'2002','2009'");
-            introducir("MODELO", "null,'Clase E',2,'2009','Actualmete'");
-            introducir("MODELO", "null,'Clase G',2,'1979','1993'");
-            introducir("MODELO", "null,'Clase G',2,'1993','Actualmente'");
-            introducir("MODELO", "null,'Clase M',2,'1998','2005'");
-            introducir("MODELO", "null,'Clase M',2,'2005','2011'");
-            introducir("MODELO", "null,'Clase M',2,'2011','Actualmente'");
-            introducir("MODELO", "null,'Clase E',2,'1996','2003'");
-            introducir("MODELO", "null,'Clase E',2,'2003','Actualmente'");
+            introducir("MODELO", "null,'Clase A I',2,'1997','2004'");
+            introducir("MODELO", "null,'Clase A II',2,'2004','2012'");
+            introducir("MODELO", "null,'Clase A III',2,'2012','Actualmente'");
+            introducir("MODELO", "null,'Clase B I',2,'2005','2011'");
+            introducir("MODELO", "null,'Clase B II',2,'2011','Actualmente'");
+            introducir("MODELO", "null,'Clase C I',2,'1993','2000'");
+            introducir("MODELO", "null,'Clase C III',2,'2000','2007'");
+            introducir("MODELO", "null,'Clase C IV',2,'2007','2014'");
+            introducir("MODELO", "null,'Clase C V',2,'2014','Actualmente'");
+            introducir("MODELO", "null,'Clase E I',2,'1993','1995'");
+            introducir("MODELO", "null,'Clase E II',2,'1995','2003'");
+            introducir("MODELO", "null,'Clase E III',2,'2002','2009'");
+            introducir("MODELO", "null,'Clase E IV',2,'2009','Actualmete'");
+            introducir("MODELO", "null,'Clase G I',2,'1979','1993'");
+            introducir("MODELO", "null,'Clase G II',2,'1993','Actualmente'");
+            introducir("MODELO", "null,'Clase M I',2,'1998','2005'");
+            introducir("MODELO", "null,'Clase M II',2,'2005','2011'");
+            introducir("MODELO", "null,'Clase M III',2,'2011','Actualmente'");
+            introducir("MODELO", "null,'Clase E I',2,'1996','2003'");
+            introducir("MODELO", "null,'Clase E II',2,'2003','Actualmente'");
             //BMW
-            introducir("MODELO", "null,'Serie 1',3,'2004','2012'");
-            introducir("MODELO", "null,'Serie 1',3,'2010','Actualmente'");
+            introducir("MODELO", "null,'Serie 1 I',3,'2004','2012'");
+            introducir("MODELO", "null,'Serie 1 II',3,'2010','Actualmente'");
             introducir("MODELO", "null,'Serie 2(2002)',3,'1966','1977'");
             introducir("MODELO", "null,'Serie 2 Coupe',3,'2012','Actualmente'");
             introducir("MODELO", "null,'Serie 3(E21)',3,'1975','1984'");
@@ -309,39 +309,39 @@ FROM
             introducir("MODELO", "null,'DS4',4,'2011','2015'");
             introducir("MODELO", "null,'DS5',4,'2011','2015'");
             //Fiat
-            introducir("MODELO", "null,'Punto',5,'1993','1999'");
-            introducir("MODELO", "null,'Punto',5,'1999','2012'");
-            introducir("MODELO", "null,'Punto',5,'2012','Actualmente'");
+            introducir("MODELO", "null,'Punto I',5,'1993','1999'");
+            introducir("MODELO", "null,'Punto II',5,'1999','2012'");
+            introducir("MODELO", "null,'Punto III',5,'2012','Actualmente'");
             introducir("MODELO", "null,'500',5,'2007','Actualmente'");
-            introducir("MODELO", "null,'Panda',5,'1980','2004'");
-            introducir("MODELO", "null,'Panda',5,'2003','Actualmente'");
-            introducir("MODELO", "null,'Panda',5,'2012','Actualmente'");
+            introducir("MODELO", "null,'Panda I',5,'1980','2004'");
+            introducir("MODELO", "null,'Panda II',5,'2003','Actualmente'");
+            introducir("MODELO", "null,'Panda III',5,'2012','Actualmente'");
             //Ford
-            introducir("MODELO", "null,'Focus',6,'1998','2007'");
-            introducir("MODELO", "null,'Focus',6,'2007','2012'");
-            introducir("MODELO", "null,'Focus',6,'2010','Actualmente'");
+            introducir("MODELO", "null,'Focus MK',6,'1998','2007'");
+            introducir("MODELO", "null,'Focus MK2',6,'2007','2012'");
+            introducir("MODELO", "null,'Focus MK3',6,'2010','Actualmente'");
 
-            introducir("MODELO", "null,'Fiesta',6,'1976','1983'");
-            introducir("MODELO", "null,'Fiesta',6,'1983','1989'");
-            introducir("MODELO", "null,'Fiesta',6,'1989','1997'");
-            introducir("MODELO", "null,'Fiesta',6,'1995','2002'");
-            introducir("MODELO", "null,'Fiesta',6,'2002','Actualmente'");
-            introducir("MODELO", "null,'Fiesta',6,'2008','Actualmente'");
+            introducir("MODELO", "null,'Fiesta I',6,'1976','1983'");
+            introducir("MODELO", "null,'Fiesta II',6,'1983','1989'");
+            introducir("MODELO", "null,'Fiesta III',6,'1989','1997'");
+            introducir("MODELO", "null,'Fiesta IV',6,'1995','2002'");
+            introducir("MODELO", "null,'Fiesta V',6,'2002','Actualmente'");
+            introducir("MODELO", "null,'Fiesta VI',6,'2008','Actualmente'");
 
-            introducir("MODELO", "null,'Escort',6,'1968','1976'");
-            introducir("MODELO", "null,'Escort',6,'1973','1981'");
-            introducir("MODELO", "null,'Escort',6,'1980','1986'");
-            introducir("MODELO", "null,'Escort',6,'1985','1990'");
-            introducir("MODELO", "null,'Escort',6,'1990','1992'");
-            introducir("MODELO", "null,'Escort',6,'1992','1996'");
-            introducir("MODELO", "null,'Escort',6,'1995','2002'");
+            introducir("MODELO", "null,'Escort I',6,'1968','1976'");
+            introducir("MODELO", "null,'Escort II',6,'1973','1981'");
+            introducir("MODELO", "null,'Escort III',6,'1980','1986'");
+            introducir("MODELO", "null,'Escort IV',6,'1985','1990'");
+            introducir("MODELO", "null,'Escort V',6,'1990','1992'");
+            introducir("MODELO", "null,'Escort VI',6,'1992','1996'");
+            introducir("MODELO", "null,'Escort VII',6,'1995','2002'");
 
             introducir("MODELO", "null,'Sierra',6,'1987','1993'");
 
-            introducir("MODELO", "null,'Mondeo',6,'1993','1996'");
-            introducir("MODELO", "null,'Mondeo',6,'1996','2000'");
-            introducir("MODELO", "null,'Mondeo',6,'2000','2007'");
-            introducir("MODELO", "null,'Mondeo',6,'2007','Actualmente'");
+            introducir("MODELO", "null,'Mondeo I',6,'1993','1996'");
+            introducir("MODELO", "null,'Mondeo II',6,'1996','2000'");
+            introducir("MODELO", "null,'Mondeo III',6,'2000','2007'");
+            introducir("MODELO", "null,'Mondeo IV',6,'2007','Actualmente'");
             //Nissan
             introducir("MODELO", "null,'Datsun 240 ',7,'1978','1981'");
             introducir("MODELO", "null,'280Z',7,'1978','1984'");
@@ -351,13 +351,13 @@ FROM
             introducir("MODELO", "null,'Almera',7,'1995','2000'");
             introducir("MODELO", "null,'Mondeo',7,'2000','Actualmente'");
 
-            introducir("MODELO", "null,'Patrol',7,'1979','1989'");
-            introducir("MODELO", "null,'Patrol',7,'1994','1998'");
-            introducir("MODELO", "null,'Patrol',7,'1998','Actualmente'");
+            introducir("MODELO", "null,'Patrol I',7,'1979','1989'");
+            introducir("MODELO", "null,'Patrol II',7,'1994','1998'");
+            introducir("MODELO", "null,'Patrol III',7,'1998','Actualmente'");
 
-            introducir("MODELO", "null,'Primera',7,'1990','1996'");
-            introducir("MODELO", "null,'Primera',7,'1996','2002'");
-            introducir("MODELO", "null,'Primera',7,'2002','Actualmente'");
+            introducir("MODELO", "null,'Primera I',7,'1990','1996'");
+            introducir("MODELO", "null,'Primera II',7,'1996','2002'");
+            introducir("MODELO", "null,'Primera III',7,'2002','Actualmente'");
 
             introducir("MODELO", "null,'Skyline R32',7,'1989','1994'");
             introducir("MODELO", "null,'Skyline R33',7,'1993','1998'");
@@ -372,14 +372,14 @@ FROM
             introducir("MODELO", "null,'Astra G',8,'1998','2009'");
             introducir("MODELO", "null,'Astra H',8,'2004','Actualmente'");
 
-            introducir("MODELO", "null,'Corsa',8,'1982','1993'");
-            introducir("MODELO", "null,'Corsa',8,'1993','2002'");
-            introducir("MODELO", "null,'Corsa',8,'2000','2009'");
-            introducir("MODELO", "null,'Corsa',8,'2006','Actualmente'");
-            introducir("MODELO", "null,'Corsa',8,'2014','Actualmente'");
+            introducir("MODELO", "null,'Corsa I',8,'1982','1993'");
+            introducir("MODELO", "null,'Corsa II',8,'1993','2002'");
+            introducir("MODELO", "null,'Corsa III',8,'2000','2009'");
+            introducir("MODELO", "null,'Corsa IV',8,'2006','Actualmente'");
+            introducir("MODELO", "null,'Corsa V',8,'2014','Actualmente'");
             //Peugeot
-            introducir("MODELO", "null,'106',9,'1991','1996'");
-            introducir("MODELO", "null,'106',9,'1988','2003'");
+            introducir("MODELO", "null,'106 I',9,'1991','1996'");
+            introducir("MODELO", "null,'106 II',9,'1988','2003'");
 
             introducir("MODELO", "null,'205',9,'1983','1987'");
 
@@ -398,7 +398,7 @@ FROM
             //Renault
             introducir("MODELO", "null,'Clio I',10,'1990','1998'");
             introducir("MODELO", "null,'Clio II',10,'1998','2005'");
-            introducir("MODELO", "null,'Clio II',10,'2005','2012'");
+            introducir("MODELO", "null,'Clio III',10,'2005','2012'");
             introducir("MODELO", "null,'Clio IV',10,'2012','Actualmente'");
 
             introducir("MODELO", "null,'Megane I',10,'1995','2004'");
@@ -406,9 +406,9 @@ FROM
             introducir("MODELO", "null,'Megane III',10,'2009','2013'");
             introducir("MODELO", "null,'Megane IV',10,'2015','Actualmente'");
 
-            introducir("MODELO", "null,'Laguna',10,'1993','2002'");
-            introducir("MODELO", "null,'Laguna',10,'2001','Actualmente'");
-            introducir("MODELO", "null,'Laguna',10,'2007','Actualmente'");
+            introducir("MODELO", "null,'Laguna I',10,'1993','2002'");
+            introducir("MODELO", "null,'Laguna II',10,'2001','Actualmente'");
+            introducir("MODELO", "null,'Laguna III',10,'2007','Actualmente'");
 
             introducir("MODELO", "null,'Modus',10,'2004','Actualmente'");
 
@@ -417,19 +417,19 @@ FROM
             introducir("MODELO", "null,'Scenic II',10,'2003','Actualmente'");
             introducir("MODELO", "null,'Scenic III',10,'2009','Actualmente'");
             //Seat
-            introducir("MODELO", "null,'Cordoba',11,'1993','1999'");
-            introducir("MODELO", "null,'Cordoba',11,'1999','2002'");
-            introducir("MODELO", "null,'Cordoba',11,'2002','2009'");
+            introducir("MODELO", "null,'Cordoba I',11,'1993','1999'");
+            introducir("MODELO", "null,'Cordoba II',11,'1999','2002'");
+            introducir("MODELO", "null,'Cordoba III',11,'2002','2009'");
 
-            introducir("MODELO", "null,'Ibiza',11,'1984','1993'");
-            introducir("MODELO", "null,'Ibiza',11,'1993','1999'");
-            introducir("MODELO", "null,'Ibiza',11,'1999','2002'");
-            introducir("MODELO", "null,'Ibiza',11,'2002','2009'");
-            introducir("MODELO", "null,'Ibiza',11,'2008','Actualmente'");
+            introducir("MODELO", "null,'Ibiza I',11,'1984','1993'");
+            introducir("MODELO", "null,'Ibiza II',11,'1993','1999'");
+            introducir("MODELO", "null,'Ibiza III',11,'1999','2002'");
+            introducir("MODELO", "null,'Ibiza IV',11,'2002','2009'");
+            introducir("MODELO", "null,'Ibiza V',11,'2008','Actualmente'");
 
-            introducir("MODELO", "null,'Leon',11,'1999','2006'");
-            introducir("MODELO", "null,'Leon',11,'2005','2012'");
-            introducir("MODELO", "null,'Leon',11,'2012','Actualmente'");
+            introducir("MODELO", "null,'Leon I',11,'1999','2006'");
+            introducir("MODELO", "null,'Leon II',11,'2005','2012'");
+            introducir("MODELO", "null,'Leon III',11,'2012','Actualmente'");
 
             introducir("MODELO", "null,'Marbella',11,'1986','1998'");
             //Volkswagen
@@ -443,9 +443,9 @@ FROM
 
             introducir("MODELO", "null,'Corrado',12,'1987','1995'");
 
-            introducir("MODELO", "null,'Scirocco',12,'1974','1980'");
-            introducir("MODELO", "null,'Scirocco',12,'1980','1992'");
-            introducir("MODELO", "null,'Scirocco',12,'2008','Actualmente'");
+            introducir("MODELO", "null,'Scirocco I',12,'1974','1980'");
+            introducir("MODELO", "null,'Scirocco II',12,'1980','1992'");
+            introducir("MODELO", "null,'Scirocco III',12,'2008','Actualmente'");
 
             introducir("MODELO", "null,'Passat B3',12,'1988','1993'");
             introducir("MODELO", "null,'Passat B4',12,'1993','1997'");
@@ -461,25 +461,25 @@ FROM
             introducir("MODELO", "null,'Polo V',12,'2009','Actualmente'");
             introducir("MODELO", "null,'Polo VI',12,'2017','Actualmente'");
             //Honda
-            introducir("MODELO", "null,'Accord',13,'1976','1981'");
-            introducir("MODELO", "null,'Accord',13,'1982','1985'");
-            introducir("MODELO", "null,'Accord',13,'1986','1989'");
-            introducir("MODELO", "null,'Accord',13,'1990','1993'");
-            introducir("MODELO", "null,'Accord',13,'1994','1997'");
-            introducir("MODELO", "null,'Accord',13,'1998','2002'");
-            introducir("MODELO", "null,'Accord',13,'2003','2007'");
-            introducir("MODELO", "null,'Accord',13,'2013','Actualmente'");
+            introducir("MODELO", "null,'Accord I',13,'1976','1981'");
+            introducir("MODELO", "null,'Accord II',13,'1982','1985'");
+            introducir("MODELO", "null,'Accord III',13,'1986','1989'");
+            introducir("MODELO", "null,'Accord IV',13,'1990','1993'");
+            introducir("MODELO", "null,'Accord V',13,'1994','1997'");
+            introducir("MODELO", "null,'Accord VI',13,'1998','2002'");
+            introducir("MODELO", "null,'Accord VII',13,'2003','2007'");
+            introducir("MODELO", "null,'Accord VIII',13,'2013','Actualmente'");
 
-            introducir("MODELO", "null,'Civic',13,'1973','1979'");
-            introducir("MODELO", "null,'Civic',13,'1980','1983'");
-            introducir("MODELO", "null,'Civic',13,'1984','1987'");
-            introducir("MODELO", "null,'Civic',13,'1988','1991'");
-            introducir("MODELO", "null,'Civic',13,'1992','1995'");
-            introducir("MODELO", "null,'Civic',13,'1996','2000'");
-            introducir("MODELO", "null,'Civic',13,'2000','2005'");
-            introducir("MODELO", "null,'Civic',13,'2006','2011'");
-            introducir("MODELO", "null,'Civic',13,'2012','2015'");
-            introducir("MODELO", "null,'Civic',13,'2016','Actualmente'");
+            introducir("MODELO", "null,'Civic SB',13,'1973','1979'");
+            introducir("MODELO", "null,'Civic SL',13,'1980','1983'");
+            introducir("MODELO", "null,'Civic AH',13,'1984','1987'");
+            introducir("MODELO", "null,'Civic EC',13,'1988','1991'");
+            introducir("MODELO", "null,'Civic EG',13,'1992','1995'");
+            introducir("MODELO", "null,'Civic EK',13,'1996','2000'");
+            introducir("MODELO", "null,'Civic EP',13,'2000','2005'");
+            introducir("MODELO", "null,'Civic FK',13,'2006','2011'");
+            introducir("MODELO", "null,'Civic FB',13,'2012','2015'");
+            introducir("MODELO", "null,'Civic X',13,'2016','Actualmente'");
 
             introducir("MODELO", "null,'S2000',13,'1999','Actualmente'");
             /*Tipo*/
@@ -731,7 +731,7 @@ FROM
         while (rs3.next()) {
             numPieza++;
         }
-        System.out.println("Numero de peizas: "+numPieza);
+        System.out.println("Numero de peizas: " + numPieza);
         int piezas[] = new int[numPieza];
         ResultSet rs4 = sentencia.executeQuery(consultaPieza);
         while (rs4.next()) {
@@ -741,12 +741,12 @@ FROM
         System.out.println(numMotor);
         for (int j = 0; j < motores.length; j++) {
             for (int k = 0; k < piezas.length; k++) {
-                introducir("Recambio", "null," + motores[j] + "," + piezas[k] + ",2,20," + Math.floor(Math.random() * 999 + 1));
-                
+                introducir("Recambio", "null," + motores[j] + "," + piezas[k] + ",2," + Math.floor(Math.random() * 19 + 1) + "," + Math.floor(Math.random() * 999 + 1));
+
             }
-            
+
         }
-        
+
     }
 
     public static void introducirMM() throws SQLException {
