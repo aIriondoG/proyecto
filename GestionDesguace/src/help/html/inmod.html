@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+	 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	 <title>Ventana de introducir o modificar</title>
+	</head>
+	<body>
+		 <h1>Esta es la interfaz de introducir o modificar los distintos elementos</h1>
+		 <p>Esta ventana puede modificar o introducir los siguientes elementos</p>
+		 <ul>
+			<li>Vehiculos</li>
+			<li>Piezas</li>
+			<li>Recambios</li>
+		 </ul>
+		 <h3>Vehiculos</h3>
+		 <img align="center" src="AMMarca.png">
+		 <br>
+		 <img align="center" src="AMModelo.png">
+		 <p>
+		 A la hora de añadir un vehiculo hay que pensar que esta compuesto por dos elementos:
+		 la marca y el modelo, si quieres introducir un modelo de una marca no almacenada en 
+		 la base de datos deberas introducir una marca que esta compuesta por el nombre de la
+		 marca y el pais de esta, una vez creada la marca o si ya estaba creada se debe crear un modelo,
+		 para crear un modelo deberas rellenar el nombre , el año de salida del vehiculo, el año en el
+		 que se deja de fabricar y la marca a la que pertenece el modelo.
+		 </p>
+		 <h3>Piezas</h3>
+		 <img align="center" src="AMTipo.png">
+		 <br>
+		 <img align="center" src="AMPieza.png">
+		 <p>
+			Una pieza esta compuesta por un tipo de pieza y por la propia pieza,
+			si quieres introducir una pieza tiene que existir el tipo de pieza deseado anteriormente,
+			a la hora de crear un tipo solo te hace falta introducir un nombre para el tipo,
+			luego para crear una pieza deberas introducir el nombre de la pieza y el tipo.
+		 </p>
+		 <h3>Recambios</h3>
+		 <img align="center" src="ARecambio.png">
+		 <p>
+			Entendemos por recambio una pieza de un vehiculo determinado, un recambio no se puede modificar
+			completamente, lo unico que se puede modificar de el es la cantidad disponible y el precio
+			de venta, por lo que en esta interfaz solo se puede añadir recambios nuevos.
+			
+			Para añadir un recambio se necesita un vehiculo, compuesto por marca y modelo, una pieza,
+			compuesta por un tipo y por la propia pieza, el desguace que posee este stock y por supuesto
+			la cantidad disponible inicialmente del recambio y el precio de venta al publico.
+		 </p>
+	</body>
+</html>
