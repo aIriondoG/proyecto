@@ -304,7 +304,7 @@ public class nRecambio extends javax.swing.JDialog {
             String insertinto = "INSERT INTO recambio VALUES(null , " + a_motor + " , " + a_pieza + " , " + a_desguace + " , " + txtCantidad.getText().toString() + " , " + txtPrecio.getText().toString() + ");";
             //System.out.println(insertinto);
             s.executeUpdate(insertinto);
-
+            padre.dispose();
             this.dispose();
             pg = new PrincipalGestion();
             pg.setVisible(true);

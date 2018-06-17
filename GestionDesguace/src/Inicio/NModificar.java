@@ -620,11 +620,18 @@ public class NModificar extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
 
-            String sentencias = "Nombre='" + txtNombre.getText() + "' , A_Tipo=" + cbTipo.getSelectedIndex();
-            // System.out.println(sentencias);
-            // System.out.println(this.getFila());
+            String sentencias = "Nombre='" + txtNombre.getText() + "'";// , A_Tipo=" + cbTipo.getSelectedIndex();
             String modificar = "UPDATE pieza SET " + sentencias + " WHERE P_Pieza=" + this.getFila() + "";
             s.executeUpdate(modificar);
+            int sentencia = 0;
+            ResultSet rs = s.executeQuery("SELECT  t.`P_Tipo`\n"
+                    + "FROM tipo t\n"
+                    + "WHERE t.`Nombre`='" + cbTipo.getSelectedItem().toString() + "'");
+            while (rs.next()) {
+                sentencia = rs.getInt(1);
+            }
+            String mod = "UPDATE pieza SET A_Tipo=" + sentencia + " WHERE P_Pieza=" + this.getFila() + "";
+            s.executeUpdate(mod);
             padre.dispose();
             this.dispose();
             pga = new PrincipalGestion();
@@ -924,7 +931,7 @@ public class NModificar extends javax.swing.JDialog {
                     + "                    FROM pieza p "
                     + "                    WHERE p.Nombre = '" + pga.getNombre() + "'");
             while (resultRell.next()) {
-                //p_p = resultRell.getInt(1);
+                p_p = resultRell.getInt(1);
                 nombre = resultRell.getString(2);
                 a_tipo = resultRell.getInt(3);
 
