@@ -62,9 +62,20 @@ public class PrincipalGestion extends javax.swing.JFrame {
         rellenarTabla(valor);
         rellenarBotones();
         getContentPane().setBackground(Color.white);
-        File fichero = new File("C:\\Users\\Rubén\\Documents\\NetBeansProjects\\oficialProyecto\\proyecto\\GestionDesguace\\src\\help\\help_set.hs");
+        File fichero = new File(".\\src\\help\\help_set.hs");
         URL hsURL = fichero.toURI().toURL();
+        ImageIcon salir = new ImageIcon("iconos/salir.png");
+        ImageIcon salirDef = new ImageIcon(salir.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
 
+        ImageIcon ayuda = new ImageIcon("iconos/help.png");
+        ImageIcon ayudaDef = new ImageIcon(ayuda.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+
+        ImageIcon acerca = new ImageIcon("iconos/acerca.png");
+        ImageIcon acercaDef = new ImageIcon(acerca.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+
+        menuSalir.setIcon(salirDef);
+        menuAcerca.setIcon(acercaDef);
+        menuAyuda.setIcon(ayudaDef);
         helpset = new HelpSet(getClass().getClassLoader(), hsURL);
         hb = helpset.createHelpBroker();
 
@@ -312,22 +323,23 @@ public class PrincipalGestion extends javax.swing.JFrame {
             pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRecambioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(txtCantidad)
+                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRecambioLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(btnComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(txtCantidad)))
                 .addGap(33, 33, 33)
-                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlRecambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRecambioLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(lblPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlRecambioLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(txtPrecio))
-                    .addComponent(btnPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnPrecio))
                 .addContainerGap())
         );
 

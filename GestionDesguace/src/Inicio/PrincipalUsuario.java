@@ -81,7 +81,7 @@ public class PrincipalUsuario extends javax.swing.JFrame {
 
         icono.setIcon(iconDef);
 
-        File fichero = new File("C:\\Users\\Rubén\\Documents\\NetBeansProjects\\oficialProyecto\\proyecto\\GestionDesguace\\src\\help\\help_set.hs");
+        File fichero = new File(".\\src\\help\\help_set.hs");
         URL hsURL = fichero.toURI().toURL();
 
         helpset = new HelpSet(getClass().getClassLoader(), hsURL);
